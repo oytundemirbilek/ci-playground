@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v4
         id: cache-venv
         with:
-          path: ./.venv/
+          path: /home/runner/work/avicortex/.venv
           key: precommit-venv-${{ hashFiles('pyproject.toml') }}
           restore-keys: precommit-venv-
 
