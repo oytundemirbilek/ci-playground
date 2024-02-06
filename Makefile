@@ -6,6 +6,7 @@ venv: .venv/bin/activate
 .venv/bin/activate:
 	if [ ! -d ".venv" ]; then
 		echo "Venv does not exist, creating a new one."
+		ls
 		python -m venv .venv
 	fi
 	source .venv/bin/activate
@@ -13,17 +14,14 @@ venv: .venv/bin/activate
 
 .PHONY:
 dependencies_test: venv
-	source .venv/bin/activate
 	pip install .[test]
 
 .PHONY:
 dependencies_lint: venv
-	source .venv/bin/activate
 	pip install .[lint]
 
 .PHONY:
 test: venv
-	source .venv/bin/activate
 	pytest
 
 .PHONY:
@@ -35,5 +33,4 @@ pre-commit: venv
 
 .PHONY:
 pre-commit-ci: venv
-	source .venv/bin/activate
 	SKIP=no-commit-to-branch pre-commit run --all-files
