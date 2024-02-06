@@ -39,10 +39,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache-venv.outputs.cache-hit != 'true'
-        run: |
-          python -m venv .venv
-          source .venv/bin/activate
-          pip install .[lint]
+        run: make dependencies_lint
 
       - name: Run precommit
-        run: pre-commit run --all-files
+        run: make pre-commit-ci

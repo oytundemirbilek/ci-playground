@@ -31,9 +31,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-          
       - name: Install dependencies
-        run: pip install pytest
-        
+        run: make dependencies_test
       - name: Test with pytest
-        run: pytest
+        run: make test
