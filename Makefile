@@ -13,10 +13,12 @@ venv: .venv/bin/activate
 
 .PHONY:
 dependencies_test: venv
+	source .venv/bin/activate
 	pip install .[test]
 
 .PHONY:
 dependencies_lint: venv
+	source .venv/bin/activate
 	pip install .[lint]
 
 .PHONY:

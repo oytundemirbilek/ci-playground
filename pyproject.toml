@@ -29,6 +29,9 @@ dependencies = [
 "Documentation" = "https://pages.github.com"
 
 [project.optional-dependencies]
+test = [
+    "pytest",
+]
 lint = [
     "isort",
     "black",
