@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm[tool]>=7"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "template"
+version = "0.0.0"
+description = "CI/CD template."
+keywords = ["template"]
+readme = "README.rst"
+authors = [{ name="Oytun Demirbilek", email="oytun1996@gmail.com" }]
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed"
+]
+
+dependencies = [
+    "python-pptx",
+]
+
+[project.urls]
+"Code Repository" = "https://github.com/oytundemirbilek/ci-playground"
+"Documentation" = "https://pages.github.com"
+
+[project.optional-dependencies]
+lint = [
+    "isort",
+    "black",
+    "pyupgrade",
+    # "flake8",
+    # "pep8-naming",
+    # "flake8-pyproject",
+    # "flake8-noqa",
+    # "flake8-bugbear",
+    # "flake8-builtins",
+    # "flake8-docstrings",
+    # "flake8-comprehensions",
+    # "flake8-simplify",
+    # "flake8-logging",
+    # "pyright",
+    # "bandit",
+    # "ruff",
+    # "mypy",
+    # "types-setuptools",
+    # "pydantic",
+    # "yamllint",
+    # "codespell[toml]",
+    # "gitlint",
+    "pre-commit",
+]
+
+[project.scripts]
+avicortex = "template.__main__:main"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "docs*"]
+namespaces = false
+
+[tool.isort]
+verbose = false
+skip_gitignore = true
+honor_noqa = true
+profile = "black"
+
+[tool.black]
+verbose = false
