@@ -43,7 +43,7 @@ jobs:
         with:
           path: ~/.cache/pre-commit
           key: cache-precommit-${{ hashFiles('.pre-commit-config.yaml') }}
-          restore-keys: cache-precommit-      
+          restore-keys: cache-precommit-
 
       - name: Install dependencies
         # if: steps.cache-venv.outputs.cache-hit != 'true'
