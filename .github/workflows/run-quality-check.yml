@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v4
         id: cache-venv
         with:
-          path: ~/.cache
+          path: .venv
           key: cache-venv-${{ hashFiles('pyproject.toml') }}
           restore-keys: cache-venv-
 
