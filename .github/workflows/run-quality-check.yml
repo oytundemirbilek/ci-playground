@@ -48,6 +48,12 @@ jobs:
       - name: Install dependencies
         if: steps.cache-venv.outputs.cache-hit != 'true'
         run: make dependencies_lint
+        
+      - name: Activate virtualenv
+        if: steps.cache-venv.outputs.cache-hit == 'true'
+        run: |
+          . .venv/bin/activate
+          echo PATH=$PATH >> $GITHUB_ENV
 
       - name: Run precommit
         run: make pre-commit-ci
