@@ -23,13 +23,21 @@ jobs:
 
     steps:
 
-      - name: Cache dependencies
+      - name: Cache venv
         uses: actions/cache@v4
         id: cache-venv
         with:
+          path: ~/.cache
+          key: cache-venv-${{ hashFiles('pyproject.toml') }}
+          restore-keys: cache-venv-
+
+      - name: Cache precommit
+        uses: actions/cache@v4
+        id: cache-precommit
+        with:
           path: ~/.cache/pre-commit
-          key: precommit-venv-${{ hashFiles('pyproject.toml') }}
-          restore-keys: precommit-venv-
+          key: cache-precommit-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: cache-precommit-
 
       - uses: actions/checkout@v4
       - name: Set up Python 3.10
