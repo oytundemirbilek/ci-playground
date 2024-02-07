@@ -24,7 +24,7 @@ jobs:
     steps:
 
       - name: Cache venv
-        uses: actions/cache@v4
+        uses: actions/cache@v3
         id: cache-venv
         with:
           path: .venv
@@ -32,7 +32,7 @@ jobs:
           restore-keys: cache-venv-
 
       - name: Cache precommit
-        uses: actions/cache@v4
+        uses: actions/cache@v3
         id: cache-precommit
         with:
           path: ~/.cache/pre-commit
