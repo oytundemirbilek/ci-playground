@@ -9,6 +9,13 @@ venv: .venv/bin/activate
 		ls
 		python -m venv .venv
 	fi
+
+	if [ ! -d "template" ]; then
+		echo "template does not exist, creating a new one."
+	else
+		echo "template does exist, creating a new one."
+	fi
+
 	source .venv/bin/activate
 	python -m pip install --upgrade pip
 
